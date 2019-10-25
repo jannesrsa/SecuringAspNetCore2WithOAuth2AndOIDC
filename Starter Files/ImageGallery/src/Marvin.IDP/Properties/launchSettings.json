@@ -1,10 +1,10 @@
-{
+﻿{
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "https://localhost:44351/",
-      "sslPort": 44351
+      "applicationUrl": "https://localhost:44379/",
+      "sslPort": 44379
     }
   },
   "profiles": {
@@ -14,13 +14,13 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ImageGallery.API": {
+    "Marvin.IDP": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:44379/"
     }
   }
 }
