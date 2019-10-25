@@ -24,43 +24,43 @@ namespace Marvin.IDP
         public static IEnumerable<Client> GetClients()
         {
             return new List<Client>()
-            //{
-            //    new Client
-            //    {
-            //        ClientName = "Image Gallery",
-            //        ClientId = "imagegalleryclient",
-            //        AllowedGrantTypes = GrantTypes.Hybrid,
-            //        AccessTokenType = AccessTokenType.Reference,
-            //        //IdentityTokenLifetime = ...
-            //        //AuthorizationCodeLifetime = ...
-            //        AccessTokenLifetime = 120,
-            //        AllowOfflineAccess = true,
-            //        //AbsoluteRefreshTokenLifetime = ...
-            //        UpdateAccessTokenClaimsOnRefresh = true,
-            //        RedirectUris = new List<string>()
-            //        {
-            //            "https://localhost:44355/signin-oidc"
-            //        },
-            //        PostLogoutRedirectUris = new List<string>()
-            //        {
-            //            "https://localhost:44355/signout-callback-oidc"
-            //        },
-            //        AllowedScopes =
-            //        {
-            //            IdentityServerConstants.StandardScopes.OpenId,
-            //            IdentityServerConstants.StandardScopes.Profile,
-            //            IdentityServerConstants.StandardScopes.Address,
-            //            "roles",
-            //            "imagegalleryapi",
-            //            "country",
-            //            "subscriptionlevel"
-            //        },
-            //        ClientSecrets =
-            //        {
-            //            new Secret("secret".Sha256())
-            //        }
-            //    }
-            // }
+            {
+                new Client
+                {
+                    ClientName = "Image Gallery",
+                    ClientId = "imagegalleryclient",
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+                    //AccessTokenType = AccessTokenType.Reference,
+                    //IdentityTokenLifetime = ...
+                    //AuthorizationCodeLifetime = ...
+                    //AccessTokenLifetime = 120,
+                    //AllowOfflineAccess = true,
+                    //AbsoluteRefreshTokenLifetime = ...
+                    //UpdateAccessTokenClaimsOnRefresh = true,
+                    RedirectUris = new List<string>()
+                    {
+                        "https://localhost:44355/signin-oidc"
+                    },
+                    //PostLogoutRedirectUris = new List<string>()
+                    //{
+                    //    "https://localhost:44355/signout-callback-oidc"
+                    //},
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        //IdentityServerConstants.StandardScopes.Address,
+                        //"roles",
+                        //"imagegalleryapi",
+                        //"country",
+                        //"subscriptionlevel"
+                    },
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    }
+                }
+             }
             ;
         }
 
