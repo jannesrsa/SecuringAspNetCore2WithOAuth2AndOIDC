@@ -55,6 +55,7 @@ namespace ImageGallery.API
                     });
                 });
             }
+            app.UseHttpsRedirection();
 
             app.UseStaticFiles();
 

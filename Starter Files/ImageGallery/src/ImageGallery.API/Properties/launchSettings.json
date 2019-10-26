@@ -16,11 +16,12 @@
     },
     "ImageGallery.API": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "launchUrl": "http://localhost:5000",
+      "launchBrowser": false,
+      "launchUrl": "https://localhost:1601/api/images",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+      },
+      "applicationUrl": "https://localhost:1601"
     }
   }
 }

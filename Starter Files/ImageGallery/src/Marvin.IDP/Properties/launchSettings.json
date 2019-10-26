@@ -16,7 +16,8 @@
     },
     "Marvin.IDP": {
       "commandName": "Project",
-      "launchBrowser": true,
+      "launchBrowser": false,
+      "launchUrl": "https://localhost:44379/",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
