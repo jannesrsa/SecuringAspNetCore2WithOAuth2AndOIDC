@@ -1,9 +1,33 @@
 ﻿@model ImageGallery.Client.ViewModels.GalleryIndexViewModel
 
+<link href="~/css/Index.css" rel="stylesheet" type="text/css" />
+
 <div class="bottomMarginDefault">
 </div>
 
 <div class="container">
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Identity token</div>
+            <div class="panel-body dont-break-out">
+                @this.Model.IdentityToken
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <!-- Default panel contents -->
+            <div class="panel-heading">Claims</div>
+            <!-- List group -->
+            <ul class="list-group">
+                @foreach (var claim in this.Model.Claims)
+                {
+                    <li class="list-group-item">@($"Claim type: {claim.Type} - Claim value: {claim.Value}")</li>
+                }
+            </ul>
+        </div>
+    </div>
+
     @foreach (var item in Model.Images)
     {
         <div class="pull-left col-md-4">
@@ -19,4 +43,4 @@
             </div>
         </div>
     }
-</div> 
+</div>

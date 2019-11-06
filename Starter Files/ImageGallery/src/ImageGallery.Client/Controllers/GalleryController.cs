@@ -149,7 +149,15 @@ namespace ImageGallery.Client.Controllers
 
         public async Task<IActionResult> Index()
         {
-            await WriteOutIdentityInformation();
+            var identityToken = await HttpContext
+                .GetTokenAsync(OpenIdConnectParameterNames.IdToken);
+
+            Debug.WriteLine($"Identity token: {identityToken}");
+
+            foreach (var claim in User.Claims)
+            {
+                Debug.WriteLine($"Claim type: {claim.Type} - Claim value: {claim.Value}");
+            }
 
             // call the API
             var httpClient = await _imageGalleryHttpClient.GetClient();
@@ -163,23 +171,13 @@ namespace ImageGallery.Client.Controllers
                 var galleryIndexViewModel = new GalleryIndexViewModel(
                     JsonConvert.DeserializeObject<IList<Image>>(imagesAsString).ToList());
 
+                galleryIndexViewModel.Claims = User.Claims;
+                galleryIndexViewModel.IdentityToken = identityToken;
+
                 return View(galleryIndexViewModel);
             }
 
             throw new Exception($"A problem happened while calling the API: {response.ReasonPhrase}");
-        }
-
-        public async Task WriteOutIdentityInformation()
-        {
-            var identityToken = await HttpContext
-                .GetTokenAsync(OpenIdConnectParameterNames.IdToken);
-
-            Debug.WriteLine($"Identity token: {identityToken}");
-
-            foreach (var claim in User.Claims)
-            {
-                Debug.WriteLine($"Claim type: {claim.Type} - Claim value: {claim.Value}");
-            }
         }
 
         public async Task Logout()
