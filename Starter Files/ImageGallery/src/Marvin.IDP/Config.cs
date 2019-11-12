@@ -50,7 +50,7 @@ namespace Marvin.IDP
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
-                        //"roles",
+                        "roles",
                         //"imagegalleryapi",
                         //"country",
                         //"subscriptionlevel"
@@ -72,10 +72,10 @@ namespace Marvin.IDP
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Address(),
-                //new IdentityResource(
-                //    "roles",
-                //    "Your role(s)",
-                //     new List<string>() { "role" }),
+                new IdentityResource(
+                    "roles",
+                    "Your role(s)",
+                     new List<string>() { "role" }),
                 //new IdentityResource(
                 //    "country",
                 //    "The country you're living in",
