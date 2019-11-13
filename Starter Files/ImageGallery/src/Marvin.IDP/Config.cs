@@ -13,11 +13,12 @@ namespace Marvin.IDP
         {
             return new List<ApiResource>
             {
-                new ApiResource("imagegalleryapi", "Image Gallery API",
-                new List<string>() {"role" } )
-                {
-                     ApiSecrets = { new Secret("apisecret".Sha256()) }
-                }
+                new ApiResource("imagegalleryapi", "Image Gallery API")
+                //,
+                //new List<string>() {"role" } )
+                //{
+                //     ApiSecrets = { new Secret("apisecret".Sha256()) }
+                //}
             };
         }
 
@@ -51,7 +52,7 @@ namespace Marvin.IDP
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
                         "roles",
-                        //"imagegalleryapi",
+                        "imagegalleryapi",
                         //"country",
                         //"subscriptionlevel"
                     },
