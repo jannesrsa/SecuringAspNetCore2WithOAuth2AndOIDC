@@ -54,8 +54,8 @@ namespace Marvin.IDP
                         IdentityServerConstants.StandardScopes.Address,
                         "roles",
                         "imagegalleryapi",
-                        //"country",
-                        //"subscriptionlevel"
+                        "country",
+                        "subscriptionlevel"
                     },
                     ClientSecrets =
                     {
@@ -78,14 +78,14 @@ namespace Marvin.IDP
                     "roles",
                     "Your role(s)",
                      new List<string>() { "role" }),
-                //new IdentityResource(
-                //    "country",
-                //    "The country you're living in",
-                //    new List<string>() { "country" }),
-                //new IdentityResource(
-                //    "subscriptionlevel",
-                //    "Your subscription level",
-                //    new List<string>() { "subscriptionlevel" })
+                new IdentityResource(
+                    "country",
+                    "The country you're living in",
+                    new List<string>() { "country" }),
+                new IdentityResource(
+                    "subscriptionlevel",
+                    "Your subscription level",
+                    new List<string>() { "subscriptionlevel" })
             };
         }
 
