@@ -42,7 +42,7 @@ namespace ImageGallery.API.Controllers
 
         [HttpGet("{id}", Name = "GetImage")]
         public IActionResult GetImage(Guid id)
-        {          
+        {
             var imageFromRepo = _galleryRepository.GetImage(id);
 
             if (imageFromRepo == null)
@@ -56,6 +56,7 @@ namespace ImageGallery.API.Controllers
         }
 
         [HttpPost()]
+        [Authorize(Roles = "PayingUser")]
         public IActionResult CreateImage([FromBody] ImageForCreation imageForCreation)
         {
             if (imageForCreation == null)
@@ -81,7 +82,7 @@ namespace ImageGallery.API.Controllers
 
             // create the filename
             string fileName = Guid.NewGuid().ToString() + ".jpg";
-            
+
             // the full file path
             var filePath = Path.Combine($"{webRootPath}/images/{fileName}");
 
@@ -94,6 +95,8 @@ namespace ImageGallery.API.Controllers
             // ownerId should be set - can't save image in starter solution, will
             // be fixed during the course
             //imageEntity.OwnerId = ...;
+            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
+            imageEntity.OwnerId = ownerId;
 
             // add and save.  
             _galleryRepository.AddImage(imageEntity);
@@ -113,7 +116,7 @@ namespace ImageGallery.API.Controllers
         [HttpDelete("{id}")]
         public IActionResult DeleteImage(Guid id)
         {
-            
+
             var imageFromRepo = _galleryRepository.GetImage(id);
 
             if (imageFromRepo == null)
@@ -132,10 +135,10 @@ namespace ImageGallery.API.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult UpdateImage(Guid id, 
+        public IActionResult UpdateImage(Guid id,
             [FromBody] ImageForUpdate imageForUpdate)
         {
-           
+
             if (imageForUpdate == null)
             {
                 return BadRequest();

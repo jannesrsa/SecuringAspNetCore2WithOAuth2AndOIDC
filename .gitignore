@@ -338,3 +338,4 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/Starter Files/ImageGallery/src/ImageGallery.API/wwwroot/Images
