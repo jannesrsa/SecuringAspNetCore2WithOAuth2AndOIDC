@@ -30,14 +30,26 @@ namespace ImageGallery.Client
 
             services.AddAuthorization(options =>
             {
-                options.AddPolicy("CanOrderFrame",
+                options.AddPolicy(
+                    "CanOrderFrame",
                     policyBuilder =>
                     {
                         policyBuilder.RequireAuthenticatedUser();
-                        policyBuilder.RequireClaim("country","be");
+                        policyBuilder.RequireClaim("country", "be");
                         policyBuilder.RequireClaim("subscriptionlevel", "PayingUser");
                     });
             });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy(
+                    "MustOwnImage",
+                    policyBuilder =>
+                    {
+                        policyBuilder.RequireAuthenticatedUser();
+                    });
+            });
+
             // register an IHttpContextAccessor so we can access the current
             // HttpContext in services by injecting it
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
