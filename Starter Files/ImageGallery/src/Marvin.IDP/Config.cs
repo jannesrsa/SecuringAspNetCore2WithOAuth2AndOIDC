@@ -13,14 +13,14 @@ namespace Marvin.IDP
         {
             return new List<ApiResource>
             {
-                new ApiResource("imagegalleryapi", "Image Gallery API", new string[] {"role" } )
-                //{
-                //ApiSecrets =
-                //    {
-                //        new Secret("apisecret".Sha256())
-                //    }
-                //}
-        };
+                new ApiResource(
+                    "imagegalleryapi",
+                    "Image Gallery API",
+                    new string[] {"role" })
+                    {
+                        ApiSecrets = { new Secret("apisecret".Sha256()) }
+                    }
+            };
         }
 
         public static IEnumerable<Client> GetClients()
@@ -32,7 +32,7 @@ namespace Marvin.IDP
                     ClientName = "Image Gallery",
                     ClientId = "imagegalleryclient",
                     AllowedGrantTypes = GrantTypes.Hybrid,
-                    //AccessTokenType = AccessTokenType.Reference,
+                    AccessTokenType = AccessTokenType.Reference,
                     //IdentityTokenLifetime = ...
                     //AuthorizationCodeLifetime = ...
                     AccessTokenLifetime = 120,
